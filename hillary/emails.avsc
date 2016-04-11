@@ -1,0 +1,11 @@
+{"namespace": "data.avro",
+ "type": "record",
+ "name": "txt",
+ "fields": [
+     {"name": "title", "type": "string"},
+     {"name": "author",  "type": ["string", "null"]},
+     {"name": "contents", "type": ["string", "null"]},
+     {"name": "part",  "type": "int"},
+     {"name": "hash", "type": ["string", "null"]}
+ ]
+}
