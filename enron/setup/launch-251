@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#Assumes that the following envirmental
+#variables exist
+#AWS_SECRET_ACCESS_KEY
+#AWS_ACCESS_KEY_ID
+
+export KEY_205=~/.ssh/w205.pem
+export SPARK_HOME=~/spark-1.5.1-bin-hadoop2.4/
+
+$SPARK_HOME/ec2/spark-ec2 -k w205 -i $KEY_205 -s 4 \
+    --region=us-east-1 \
+    --zone=us-east-1a \
+    --copy-aws-credentials \
+    launch w251-mids
