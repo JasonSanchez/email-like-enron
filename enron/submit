@@ -1,0 +1,6 @@
+#!/bin/bash
+spark/bin/spark-submit --verbose --master spark://ec2-54-234-18-249.compute-1.amazonaws.com:7077 \
+    --verbose \
+    --packages com.databricks:spark-avro_2.10:2.0.1 \
+    --executor-cores 4 \
+    --num-executors 8 enron.py
