@@ -7,7 +7,10 @@
 #created with the python script ./attach_enron_data.py
 
 #Install pssh on master
-yum install -y pssh
+yum install -y pssh git
+
+#Grab the repo so we have the files we want
+git clone git@github.com:JasonSanchez/email-like-enron.git
 
 #mount the enron dir on the master
 #this assumes that volumes have been creates
