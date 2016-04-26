@@ -2,7 +2,7 @@ import re
 import math
 from collections import Counter
 
-from pyspark import SparkContext
+from pyspark import SparkContext, SparkConf
 from pyspark import SQLContext
 
 
@@ -34,7 +34,12 @@ def text_to_vector(text):
 
 
 if __name__ == "__main__":
-    sc = SparkContext(appName="DoesHillaryKnowEnron")
+    conf = SparkConf()
+    conf.setAppName("HillAndEnron")
+    conf.set("spark.driver.maxResultSize", "10g")
+
+    sc = SparkContext(conf=conf)
+
     sqlContext = SQLContext(sc)
 
     # path to hillary/enron avro
@@ -62,6 +67,5 @@ if __name__ == "__main__":
                          "desc limit 1000")
 
     # write back out to s3
-    out.write.format(
-        "com.databricks.spark.avro").save(
-            "s3n://datasets-396316040607/cos_sim/")
+    # write back out to s3
+    out.save("s3n://datasets-396316040607/cos_sim/", format="json")

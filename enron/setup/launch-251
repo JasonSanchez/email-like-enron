@@ -16,5 +16,7 @@ $SPARK_HOME/ec2/spark-ec2 -k w205 -i $KEY_205 -s 6 \
     --instance-type=m4.4xlarge \
     --region=us-east-1 \
     --zone=us-east-1a \
+    --vpc-id=vpc-5bc8203c \
+    --subnet-id=subnet-afda93d9 \
     --copy-aws-credentials \
     launch w251-mids
