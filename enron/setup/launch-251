@@ -5,10 +5,15 @@
 #AWS_SECRET_ACCESS_KEY
 #AWS_ACCESS_KEY_ID
 
+#Things to consider:
+#--instance-type=
+#-s num_slaves
+
 export KEY_205=~/.ssh/w205.pem
 export SPARK_HOME=~/spark-1.5.1-bin-hadoop2.4/
 
-$SPARK_HOME/ec2/spark-ec2 -k w205 -i $KEY_205 -s 4 \
+$SPARK_HOME/ec2/spark-ec2 -k w205 -i $KEY_205 -s 6 \
+    --instance-type=m4.4xlarge \
     --region=us-east-1 \
     --zone=us-east-1a \
     --copy-aws-credentials \
