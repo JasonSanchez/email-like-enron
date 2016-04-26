@@ -1,0 +1,8 @@
+#!/bin/bash
+~/spark/bin/spark-submit --verbose --master spark://ec2-52-87-252-202.compute-1.amazonaws.com:7077 \
+    --verbose \
+    --packages com.databricks:spark-avro_2.10:2.0.1 \
+    --num-executors 6 \
+    --executor-cores 15 \
+    --executor-memory 19G cross_product.py
+
